@@ -1,3 +1,5 @@
+
+
 import { Schema, model, models, Document } from 'mongoose'
 
 export interface IOrder extends Document {
@@ -46,7 +48,7 @@ const OrderSchema = new Schema({
     ref: 'User',
   },
 })
-
+console.log("modelllllllllllllllllllll");
 const Order = models.Order || model('Order', OrderSchema)
 
 export default Order;
