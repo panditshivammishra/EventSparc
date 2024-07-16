@@ -1,0 +1,21 @@
+import EventForm from "@/components/shared/EventForm"
+import { auth } from "@clerk/nextjs/server";
+
+const UpdateEvent = () => {
+    
+    const {userId} = auth();
+    
+    let id = userId!;
+ 
+    return (
+        <>
+        <section className="bg-dotted-pattern bg-primary-50 bg-cover bg-center py-5 md:py-10">
+           <h3 className="wrapper h3-bold text-center sm:text-left">UpdateEvent</h3>
+        </section>
+         <div className="wrapper my-8">
+        <EventForm userId={id} type="Create" />
+            </div>
+        </>
+    )
+}
+export default UpdateEvent;

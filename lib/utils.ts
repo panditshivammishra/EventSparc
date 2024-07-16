@@ -1,3 +1,4 @@
+
 import { type ClassValue, clsx } from 'clsx'
 
 import { twMerge } from 'tailwind-merge'
@@ -87,7 +88,18 @@ export function removeKeysFromQuery({ params, keysToRemove }: RemoveUrlQueryPara
   )
 }
 
+// export const handleError = (error: unknown) => {
+//   console.error(error)
+//   throw new Error(typeof error === 'string' ? error : JSON.stringify(error))
+// }
+
 export const handleError = (error: unknown) => {
-  console.error(error)
-  throw new Error(typeof error === 'string' ? error : JSON.stringify(error))
-}
+  if (error instanceof Error) {
+    console.error(error.message);
+    console.error(error.stack);
+  } else {
+    console.error(error);
+  }
+  
+  throw new Error(typeof error === 'string' ? error : 'An unknown error occurred');
+};
