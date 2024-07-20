@@ -40,4 +40,4 @@ const Checkout = ({ event, userId }: { event: IEvent, userId: string }) => {
   )
 }
 
-export default Checkout
+export default Checkout;

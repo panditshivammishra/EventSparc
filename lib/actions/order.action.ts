@@ -14,10 +14,10 @@ export const checkoutOrder = async (order: CheckoutOrderParams) => {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
     const price = order.isFree ? 0 : Number(order.price) * 100;
-  
 
   try {
     const session = await stripe.checkout.sessions.create({
+      
       line_items: [
         {
           price_data: {

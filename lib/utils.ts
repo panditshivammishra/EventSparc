@@ -59,10 +59,11 @@ export const formatPrice = (price: string) => {
 }
 
 export function formUrlQuery({ params, key, value }: UrlQueryParams) {
+  console.log("this is normal params", params);
   const currentUrl = qs.parse(params)
-
-  currentUrl[key] = value
-
+  
+  currentUrl[key] = value;
+    console.log("this is the current url",currentUrl);
   return qs.stringifyUrl(
     {
       url: window.location.pathname,
