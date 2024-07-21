@@ -105,11 +105,11 @@ export async function getAllEvents({ query, limit = 6, page, category }: GetAllE
       $and: [titleCondition, categoryCondition ? { category: categoryCondition._id } : {}],
     }
 
-    // const skipAmount = (Number(page) - 1) * limit
+    const skipAmount = (Number(page) - 1) * limit
    
     const eventsQuery = Event.find(conditions)
       .sort({ createdAt: 'desc' })
-      .skip(0)
+      .skip(skipAmount)
       .limit(limit)
 
     const events = await populateEvent(eventsQuery)
@@ -125,7 +125,7 @@ export async function getAllEvents({ query, limit = 6, page, category }: GetAllE
 }
 
 // GET EVENTS BY ORGANIZER
-export async function getEventsByUser({ userId, limit = 6, page }: GetEventsByUserParams) {
+export async function getEventsByUser({ userId, limit = 3, page }: GetEventsByUserParams) {
   try {
     await connectToDatabase()
 
