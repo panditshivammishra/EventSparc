@@ -11,8 +11,8 @@ const poppins = Poppins({
  });
 
 export const metadata: Metadata = {
-  title: "Evently",
-  description: "evently for event management",
+  title: "EventSparc",
+  description: "event sparc for event management",
   
 };
 
